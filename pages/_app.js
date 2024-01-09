@@ -1,7 +1,8 @@
 import Layout from "@/components/layout/layout"
 
 export default function App({ Component, pageProps }) {
-  return(<Layout>
+  return(
+  <Layout>
     <Component {...pageProps} />
   </Layout>)
 }

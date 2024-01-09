@@ -2,6 +2,7 @@ import { getEventById, getAllEvents } from "@/helper/api-util"
 import EventSummary from "@/components/event-detail/event-summary"
 import EventLogistics from "@/components/event-detail/event-logistics"
 import EventContent from "@/components/event-detail/event-content"
+import EventComment from "@/components/event-detail/event-comment"
 
 export default function EventDetails({selectedEvent}){
     const event = selectedEvent
@@ -20,6 +21,7 @@ export default function EventDetails({selectedEvent}){
             <EventContent>
                 <p>{event.description}</p>
             </EventContent>
+            <EventComment eventId={event.id} />
         </>
     )
 }
