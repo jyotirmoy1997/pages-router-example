@@ -7,7 +7,7 @@ export default async function handler(req, res){
         const eventId = req.query.eventId
         const newComment = {email, name, comment, eventId}
         try {
-            const client = await MongoClient.connect("mongodb+srv://dosjoehan1997:fwyqf81unG40TeX4@cluster0.pkfeb8q.mongodb.net/events?retryWrites=true&w=majority");
+            const client = await MongoClient.connect(process.env.MONGO_URI);
             const db = client.db('events');
             
             const result = await db.collection('comments').insertOne({ newComment });
@@ -23,7 +23,7 @@ export default async function handler(req, res){
     }
     else if(req.method === "GET"){
         try {
-            const client = await MongoClient.connect("mongodb+srv://dosjoehan1997:fwyqf81unG40TeX4@cluster0.pkfeb8q.mongodb.net/events?retryWrites=true&w=majority");
+            const client = await MongoClient.connect(process.env.MONGO_URI);
             const db = client.db('events');
             
             const result = await db.collection('comments').find().toArray();
